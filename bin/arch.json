@@ -1,0 +1,78 @@
+{
+    "unix-mpi": {
+	"FC": "mpif77",
+	"FFLAGS": ["-I.", "-O3", "-DMPIIO", "-fdefault-real-8",
+		   "-fdefault-double-8"],
+	"CC": "mpicc",
+	"CFLAGS": ["-I.", "-O3", "-DMPIIO", "-DMPI", "-DUNDERSCORE",
+		   "-DGLOBAL_LONG_LONG"],
+	"LD": "mpif77",
+	"LDFLAGS": ["-lblas", "-llapack"]
+    },
+    "theta": {
+	"FC": "ftn",
+	"FFLAGS": ["-DMPI", "-DMPIIO", "-align array64byte",
+		   "-xMIC-AVX512", "-shared-intel", "-r8",
+		   "-fpconstant", "-fpp", "-fixed"],
+	"CC": "cc",
+	"CFLAGS": ["-DMPIIO", "-DMPI", "-DUNDERSCORE",
+		   "-DGLOBAL_LONG_LONG"],
+	"LD": "ftn",
+	"LDFLAGS": []
+    },
+    "titan-pgi-mpi": {
+	"FC": "ftn",
+	"FFLAGS": ["-I.", "-O3", "-DMPIIO", "-DTitan", "-DMPI","-r8"],
+	"CC": "cc",
+	"CFLAGS": ["-I.", "-O3", "-DMPIIO", "-DTitan", "-DMPI",
+		   "-Dr8", "-DUNDERSCORE", "-DGLOBAL_LONG_LONG"],
+        "LD": "ftn",
+	"LDFLAGS": ["-llapack", "-lblas"]
+    },
+    "titan-pgi-acc": {
+	"FC": "ftn",
+	"FFLAGS": ["-I.", "-acc", "-Minfo=accel",
+		   "-ta=nvidia:cc35,cc50,cc60", "-O3", "-DMPIIO",
+                   "-DTitan", "-DMPI","-r8"],
+	"CC": "cc",
+	"CFLAGS": ["-I.", "-acc", "-Minfo=accel",
+                   "-ta=nvidia:cc35,cc50,cc60", "-O3", "-DMPIIO",
+                   "-DTitan", "-DMPI", "-Dr8", "-DUNDERSCORE",
+		   "-DGLOBAL_LONG_LONG"],
+        "LD": "ftn",
+        "LDFLAGS": ["-llapack", "-lblas", "-ta=nvidia:cc35,cc50,cc60"]
+    },
+    "cetus": {
+	"FC": "/bgsys/drivers/ppcfloor/comm/xl/bin/mpixlf77",
+	"FFLAGS": ["-DMPIIO", "-WF,", "-qrealsize=8", "-qdpc=e",
+                   "-qsuffic=cpp=f"],
+	"CC": "/bgsys/drivers/ppcfloor/comm/xl/bin/mpixlc",
+	"CFLAGS": ["-DMPIIO", "-Dr8", "-DMPI", "-DGLOBAL_LONG_LONG",
+		   "-DIBM", "-DPREFIX=jl_"],
+	"LD": "/bgsys/drivers/ppcfloor/comm/xl/bin/mpixlf77_r",
+	"LDFLAGS": ["-L/soft/libraries/alcf/current/xl/LAPACK/lib",
+                    "-llapack",
+	            "-L/soft/libraries/alcf/current/xl/BLAS/lib",
+                    "-lblas"]
+    },
+    "tesla-pgi-mpi": {
+        "FC": "mpif90",
+	"FFLAGS": ["-I.", "-DMPIIO", "-O3", "-r8"],
+        "CC": "mpicc",
+        "CFLAGS": ["-I.", "-O3", "-DMPIIO", "-DMPI", "-DUNDERSCORE",
+		   "-DGLOBAL_LONG_LONG"],
+        "LD": "mpif90",
+        "LDFLAGS": ["-lblas", "-llapack"]
+    },
+    "tesla-pgi-acc": {
+        "FC": "mpif90",
+	"FFLAGS": ["-I.", "-acc", "-Minfo=accel",
+	           "-ta=tesla:cc50,cuda8.0", "-DMPIIO", "-O3", "-r8"],
+	"CC": "mpicc",
+	"CFLAGS": ["-I.", "-acc", "-Minfo=accel",
+	           "-ta=tesla:cc50,cuda8.0", "-DMPIIO", "-O3", "-DMPI",
+		   "-DUNDERSCORE", "-DGLOBAL_LONG_LONG"],
+        "LD": "mpif90",
+        "LDFLAGS": ["-lblas", "-llapack", "-ta=tesla:cc50,cuda8.0"]
+    }
+}
