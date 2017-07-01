@@ -1,0 +1,55 @@
+      common /pmlparam/
+     $     pmlorder,            ! degree of the polynomial grading
+     $     pmlreferr,           ! desired reflection error from the PML
+     $     pmlthick             ! thickness of the PML in layers
+      integer pmlthick
+      real pmlorder,pmlreferr
+
+      common /pml1/
+     $     pmlsigma(lx1*ly1*lz1*lelt,3),
+     $     pmlouter(2*ldim),pmlinner(2*ldim)
+      real pmlsigma
+      real pmlouter,pmlinner
+
+      common /pml2/
+     $     pmlbn(lpts1,3),
+     $     pmldn(lpts1,3),
+c Source terms arising out of PML
+     $     respmlhn(lpts1,3),
+     $     respmlen(lpts1,3),
+c Time integration RHS PML fields
+     $     respmlbn(lpts1,3),
+     $     respmldn(lpts1,3),
+c RK4 temp storage for PML-specific fields
+     $     kpmlbn(lpts1,3),
+     $     kpmldn(lpts1,3)
+      real pmlbn,pmldn
+      real respmlhn,respmlen
+      real respmlbn,respmldn
+      real kpmlbn,kpmldn
+
+c     pmltag is a per-element bit pattern:
+c
+c     bit 0: element is part of -X PML
+c     bit 1: element is part of +X PML
+c     bit 2: element is part of -Y PML
+c     bit 3: element is part of +Y PML
+c     bit 4: element is part of -Z PML
+c     bit 5: element is part of +Z PML
+      common /pml3/
+     $     pmlptr(lelt),
+     $     pmlsrf(lelt,2*ldim),
+     $     pmltag(lelt)
+      integer pmltag,pmlptr,pmlsrf
+
+      common /pml4/ maxpml,maxpmlg,npmlsrf
+      integer maxpml,maxpmlg,npmlsrf
+
+      common /scratch/
+     $     faceary(lx1*lz1,2*ldim,lelt),
+     $     fullary(lx1,ly1,lz1,lelt),
+     $     fullaryx(lx1,ly1,lz1,lelt),
+     $     fullaryy(lx1,ly1,lz1,lelt),
+     $     fullaryz(lx1,ly1,lz1,lelt),
+     $     fullaryprime(lx1,ly1,lz1,lelt)
+      real faceary,fullary,fullaryx,fullaryy,fullaryz,fullaryprime

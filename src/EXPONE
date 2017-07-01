@@ -1,0 +1,32 @@
+       
+       common /arn1/ 
+     $   rU  (lx1*ly1*lz1*lelt*(3+3*(ldim-2)))
+     $,  rV0 (lx1*ly1*lz1*lelt*(3+3*(ldim-2)),larnol+1)
+     $,  rV  (lx1*ly1*lz1*lelt*(3+3*(ldim-2)),larnol)
+     $,  rVt (larnol,lx1*ly1*lz1*lelt*(3+3*(ldim-2)))
+     $,  rH0 (larnol+1,larnol)
+     $,  rH  (larnol,larnol)
+     $,  rW  (larnol)
+       real rU,rV0,rV,rVt,rH0,rH,rW                                
+
+       common /arn2/ marnol
+       integer       marnol
+
+
+       common /arn4/ wsp(2*larnol*(larnol+2))
+       real          wsp
+
+      common /arn5/  eval(larnol),vr(larnol,larnol),vri(larnol,larnol)
+     $            ,  zh(larnol,larnol),zh2(larnol),zh3(larnol)
+     $            ,  awork(larnol)
+      complex*16     eval,vr,vri,zh,zh2,zh3,awork
+
+      common /arn7/  rwork(2*larnol)
+      real           rwork
+
+      common /arn8/  ipiv(larnol)
+      integer        ipiv
+
+       
+
+  

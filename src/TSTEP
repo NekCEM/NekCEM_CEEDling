@@ -1,0 +1,32 @@
+      common /tstep1/ time,timef,fintim,timeio
+     $               ,dt,dtinvm,courno
+     $               ,ab(10),bd(10),abmsh(10)
+     $               ,avdiff(ldimt1),avtran(ldimt1),volfld(0:ldimt1)
+     $               ,tolev
+     $               ,tolps,tolhs,tolhr,tolhv,tolht(ldimt1),tolhe
+     $               ,vnrmh1,vnrmsm,vnrml2,vnrml8,vmean
+     $               ,tnrmh1(ldimt),tnrmsm(ldimt),tnrml2(ldimt)
+     $               ,tnrml8(ldimt),tmean(ldimt)
+     $               ,nextsubdt
+      real time,timef,fintim,timeio,dt,dtinvm,courno
+      real ab,bd,abmsh,avdiff,avtran,volfld,
+     $     tolev,tolps,tolhs,tolhr,tolhv,tolht,tolhe,
+     $     vnrmh1,vnrmsm,vnrml2,vnrml8,vmean,tnrmh1,tnrmsm,tnrml2,
+     $     tnrml8,tmean
+
+      real nextsubdt
+c
+      common /istep2/ ifield,imesh,istep,nsteps,iostep,lastep,iocomm
+     $               ,nab,nbd,nbdinp,ntaubd
+     $               ,nelfld(0:ldimt1)
+      integer         ifield,imesh,istep,nsteps,iostep,lastep,iocomm
+     $               ,nab,nbd,nbdinp,ntaubd
+     $               ,nelfld
+c
+      common /tstep3/ pi
+      real   pi
+      common /tstep4/ ifprnt
+      logical ifprnt
+
+      common /haltcondition/ usesteps
+      logical usesteps

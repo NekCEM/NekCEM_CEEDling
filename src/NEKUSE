@@ -1,0 +1,26 @@
+      COMMON /NEKUSE/ X  ,Y  ,Z  ,R  ,THETA
+     $              , UX ,UY ,UZ
+     $              , UN ,U1 ,U2
+     $              , TRX,TRY,TRZ
+     $              , TRN,TR1,TR2,PA
+     $              , FFX,FFY,FFZ
+     $              , TEMP,FLUX,HC,HRAD,TINF,QVOL
+     $              , UDIFF,UTRANS
+     $              , SI2,SI3,SIGMA
+     $              , TURBK,TURBE
+     $              , face_value
+     $              , PS(9)
+     $              , source
+
+       real x,y,z,r,theta,ux,uy,uz,un,u1,u2,trx,try,trz
+       real trn,tr1,tr2,pa,ffx,ffy,ffz,temp,flux,hc,hrad,tinf,qvol
+       real udiff,utrans,si2,si3,sigma,turbk,turbe
+       real face_value,ps,source
+
+       REAL         PS1,PS2,PS3,PS4,PS5,PS6,PS7,PS8,PS9
+       EQUIVALENCE (PS1,PS(1)),(PS2,PS(2)),(PS3,PS(3)),(PS4,PS(4))
+       EQUIVALENCE (PS5,PS(5)),(PS6,PS(6)),(PS7,PS(7)),(PS8,PS(8))
+       EQUIVALENCE (PS9,PS(9))
+
+       COMMON /NEKUSC/ cbu
+       character*3     cbu

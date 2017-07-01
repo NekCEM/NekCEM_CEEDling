@@ -1,0 +1,14 @@
+      common /POISSONV/  
+     $                potent (lpts1)
+     $             ,  charge (lpts1)
+     $             ,  rhs    (lpts1)
+     $             ,  h1     (lpts1)
+     $             ,  h2     (lpts1)
+     $             ,  mask   (lpts1)
+     $             ,  mult   (lpts1)
+     $             ,  spotent(lpts1)
+     $             ,  epotent(lpts1)
+
+      real    potent,charge,rhs,h1,h2,mask,mult
+      real    spotent,epotent
+
